@@ -68,7 +68,7 @@ class SkyDomeUpdateCallback: public osg::NodeCallback
                 for( unsigned int i= 0; i < geode->getNumDrawables(); i++ )
                 {
                     osg::Drawable *dbl = geode->getDrawable(i);
-                    osg::Drawable::UpdateCallback *updateCallback = dbl->getUpdateCallback();
+                    osg::Drawable::UpdateCallback *updateCallback = dynamic_cast<osg::Drawable::UpdateCallback*>(dbl->getUpdateCallback());
                     if( updateCallback != NULL )
                         updateCallback->update( nv, dbl );
                 }
